@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- setter 注入   -->
+    <bean id="hm" class="com.lvlp.stu.xml.pojo.HappyMachine">
+        <property name="machineName" value="小爱同学"></property>
+    </bean>
+    <bean id="hpp" class="com.lvlp.stu.xml.pojo.HappyComponent">
+        <!--set方法赋值 标签为 property 必须提供set方法
+            name 是 属性名  value 只能赋值 8大基本+8大包装 + String  数据类型
+        -->
+        <property name="componentName" value="嘿嘿嘿"></property>
+        <property name="happyMachine" ref="hm"></property>
+    </bean>
+</beans>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--    域名/公司/产品-->
+    <groupId>com.lvlp.maven</groupId>
+    <!--    项目名称-->
+    <artifactId>maven-java</artifactId>
+    <!--    版本号-->
+    <version>1.0-SNAPSHOT</version>
+    <!--    打包信息-->
+    <packaging>war</packaging>
+    <!--    属性信息-->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 自定义 统一版本号别名       -->
+        <junit.viseron>4.12</junit.viseron>
+        <mysql.version>8.0.33</mysql.version>
+    </properties>
+    <dependencies>
+        <!--        https://mvnrepository.com/ 里面去找 GAV-->
+        <!--        引入jar包 输入 G A V  会自动下载依赖以及依赖的依赖-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <!--提取统一版本号 ${junit.viseron}-->
+            <version>${junit.viseron}</version>
+            <!--     scope       使用范围
+            test : 测试目录里面能用
+            compile 编译环境能用 任何目录
+            provided 除了服务器上，均可使用 服务器上自带 servlet 有日志
+            runtime ：运行时
+            -->
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!--8.8.8.8 不存在的版本号 也会下载一批失败的依赖文件-->
+            <version>${mysql.version}</version>
+        </dependency>
+        <!--依赖的传递        -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.2</version>
+        </dependency>
+        <!-- 依赖冲突  maven 会自动解决冲突
+               1、路径优先
+               2、谁先声明谁优先
+
+               -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>6.0.6</version>
+            <!--  exclusions 手动排除冲突的依赖          -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+    </dependencies>
+
+    <!--  构建的插件  比如替换版本、增加插件-->
+    <build>
+        <!--        打包名 默认 A + V-->
+        <finalName>maven-java</finalName>
+        <!--自定义打包   默认java目录只打包java 代码 resources 目录下配置文件
+                遵循规则 maven 会自动帮你编译
+                不遵循规则 则需要自己设置
+                通常不进行设置 按规则进行
+                -->
+        <!--        <resources>-->
+        <!--            <resource>-->
+        <!--                <directory>src/main/java</directory>-->
+        <!--                <includes>-->
+        <!--                    <include>**/*.properties</include>-->
+        <!--                    <include>**/*.xml</include>-->
+        <!--                </includes>-->
+        <!--            </resource>-->
+        <!--        </resources>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

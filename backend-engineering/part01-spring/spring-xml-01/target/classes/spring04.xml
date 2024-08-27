@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- setter 注入   -->
+    <!-- 外部bean 会被通用 多个地方同时使用时值会被改变相互影响  如要不被影响就使用  内部bean   -->
+    <bean id="hm" class="com.lvlp.stu.xml.pojo.HappyMachine">
+        <property name="machineName" value="小爱同学"></property>
+    </bean>
+    <bean id="hpp1" class="com.lvlp.stu.xml.pojo.HappyComponent">
+        <property name="componentName" value="嘿嘿嘿"></property>
+        <property name="happyMachine" ref="hm"></property>
+    </bean>
+    <bean id="hpp2" class="com.lvlp.stu.xml.pojo.HappyComponent">
+        <property name="componentName" value="嘿嘿嘿"></property>
+        <property name="happyMachine">
+            <bean class="com.lvlp.stu.xml.pojo.HappyMachine">
+                <property name="machineName" value="小爱同学"></property>
+            </bean>
+        </property>
+    </bean>
+</beans>

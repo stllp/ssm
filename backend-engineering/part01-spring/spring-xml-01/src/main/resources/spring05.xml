@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- setter 注入   -->
+    <!-- 外部bean 会被通用 多个地方同时使用时值会被改变相互影响  如要不被影响就使用  内部bean   -->
+    <bean id="HappyMachine" class="com.lvlp.stu.xml.pojo.HappyMachine">
+        <property name="machineName" value="小爱同学"></property>
+    </bean>
+    <bean id="HappyComponent" class="com.lvlp.stu.xml.pojo.HappyComponent">
+        <property name="componentName" value="嘿嘿嘿"></property>
+        <property name="happyMachine" ref="HappyMachine"></property>
+        <property name="startList">
+            <list>
+                <value>迪丽热巴</value>
+                <value>古力娜扎</value>
+                <value>哈妮克孜</value>
+            </list>
+        </property>
+        <property name="heros">
+            <set>
+                <value>李白</value>
+                <value>韩信</value>
+                <value>赵云</value>
+            </set>
+        </property>
+        <property name="skills">
+            <map>
+                <entry key="R" value="大河之水天上来"></entry>
+                <entry key="W" value="七进七出"></entry>
+                <entry key="A" value="左突右进"></entry>
+                <entry key="D" value="万福朝宗"></entry>
+            </map>
+        </property>
+    </bean>
+</beans>
