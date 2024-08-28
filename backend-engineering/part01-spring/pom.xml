@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-xml-01</module>
+        <module>spring-anno-02</module>
     </modules>
     <dependencies>
         <dependency>
