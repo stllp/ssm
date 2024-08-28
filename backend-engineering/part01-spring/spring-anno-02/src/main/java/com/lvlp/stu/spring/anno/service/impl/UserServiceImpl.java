@@ -1,11 +1,12 @@
-package com.lvlp.stu.spring.xml.service.impl;
+package com.lvlp.stu.spring.anno.service.impl;
 
-import com.lvlp.stu.spring.xml.dao.UserDao;
-import com.lvlp.stu.spring.xml.pojo.User;
-import com.lvlp.stu.spring.xml.service.UserService;
+import com.lvlp.stu.spring.anno.dao.UserDao;
+import com.lvlp.stu.spring.anno.pojo.User;
+import com.lvlp.stu.spring.anno.service.UserService;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class UserServiceImpl implements UserService {
     private UserDao userDao;
     public void setUserDao(UserDao userDao) {

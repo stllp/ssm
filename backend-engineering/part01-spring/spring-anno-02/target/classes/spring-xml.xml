@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    xml方式实现三层  是最普世的方式 当关系复杂时会出现大量的xml标签属性 不便于代码的修改查找 所有现在已经不实用了 后面采用注解的方式-->
+    <bean id="userDao" class="com.lvlp.stu.spring.xml.dao.impl.UserDaoImpl"></bean>
+    <bean id="userService" class="com.lvlp.stu.spring.xml.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="userController" class="com.lvlp.stu.spring.xml.controller.UserController">
+        <property name="userService" ref="userService"/>
+    </bean>
+</beans>

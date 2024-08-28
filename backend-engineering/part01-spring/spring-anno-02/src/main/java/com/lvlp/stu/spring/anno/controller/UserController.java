@@ -1,10 +1,11 @@
-package com.lvlp.stu.spring.xml.controller;
+package com.lvlp.stu.spring.anno.controller;
 
-import com.lvlp.stu.spring.xml.pojo.User;
-import com.lvlp.stu.spring.xml.service.UserService;
+import com.lvlp.stu.spring.anno.pojo.User;
+import com.lvlp.stu.spring.anno.service.UserService;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+@Component
 public class UserController {
     private UserService userService;
     public void setUserService(UserService userService) {
