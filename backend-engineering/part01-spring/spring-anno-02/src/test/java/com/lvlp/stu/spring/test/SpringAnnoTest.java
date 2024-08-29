@@ -1,5 +1,6 @@
 package com.lvlp.stu.spring.test;
 
+import com.lvlp.stu.spring.anno.config.ConfigProperties;
 import com.lvlp.stu.spring.anno.controller.UserController;
 import com.lvlp.stu.spring.anno.dao.UserDao;
 import com.lvlp.stu.spring.anno.service.UserService;
@@ -15,11 +16,27 @@ public class SpringAnnoTest {
     @Test
     public void test() {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("spring-anno.xml");
-        UserDao userDao = ioc.getBean("userDaoImpl", UserDao.class);
-        userDao.showAll();
-        UserService userService = ioc.getBean("userServiceImpl", UserService.class);
-        userService.showList();
+
+
         UserController userController = ioc.getBean("userController", UserController.class);
+        System.out.println(userController);
         userController.showList();
+
+//        UserService userService = ioc.getBean("userServiceImpl", UserService.class);
+//        System.out.println(userService);
+//        userService.showList();
+//
+//        UserDao userDao = ioc.getBean("userDaoImpl", UserDao.class);
+//        System.out.println(userDao);
+        //userDao.showAll();
+    }
+    @Test
+    public void test1() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("spring-anno.xml");
+
+
+        ConfigProperties configProperties = ioc.getBean("configProperties", ConfigProperties.class);
+        System.out.println(configProperties.toString());
+
     }
 }

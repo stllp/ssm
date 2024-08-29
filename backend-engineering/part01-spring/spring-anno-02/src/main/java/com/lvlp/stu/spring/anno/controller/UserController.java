@@ -2,18 +2,31 @@ package com.lvlp.stu.spring.anno.controller;
 
 import com.lvlp.stu.spring.anno.pojo.User;
 import com.lvlp.stu.spring.anno.service.UserService;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
-@Component
+
+//@Component
+//@Controller("userC") 自定义ID名称  默认是类名 首字母小写
+@Controller
 public class UserController {
+    @Autowired(required = false) //放在属性上  使用反射注入  一般写在属性上
     private UserService userService;
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-    public  List<User> showList(){
+
+
+//    @Autowired 可以写在set 方法上
+//    public UserController(UserService userService) {
+//        this.userService = userService;
+//    }
+//    @Autowired 可以写在构造方法上
+//    public void setUserService(UserService userService) {
+//        this.userService = userService;
+//    }
+
+    public List<User> showList() {
         System.out.println("UserController 的 showList 方法被执行了");
-        return  userService.showList();
+        return userService.showList();
     }
 
 

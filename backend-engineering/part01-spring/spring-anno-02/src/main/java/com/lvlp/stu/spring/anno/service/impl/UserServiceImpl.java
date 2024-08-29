@@ -3,15 +3,21 @@ package com.lvlp.stu.spring.anno.service.impl;
 import com.lvlp.stu.spring.anno.dao.UserDao;
 import com.lvlp.stu.spring.anno.pojo.User;
 import com.lvlp.stu.spring.anno.service.UserService;
-import org.springframework.stereotype.Component;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Component
+
+//@Component
+@Service
 public class UserServiceImpl implements UserService {
+    //    @Autowired //spring 提供的自动注入 先找类型 再找名字  搭配@Qualifier 完成 多类型的情况  也可以使用@Repository ("userDao")
+//    @Qualifier("userDaoV2Impl")
+    @Resource //jakarta 提供的自动注入  先找名字再找类型  搭配@Repository ("userDao")  完成 多类型的情况
     private UserDao userDao;
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
+//    public void setUserDao(UserDao userDao) {
+//        this.userDao = userDao;
+//    }
 
     @Override
     public List<User> showList() {
