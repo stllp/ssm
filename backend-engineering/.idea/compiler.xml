@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-xml-01" />
         <module name="spring-anno-02" />
+        <module name="spring-aop-before-03" />
+        <module name="spring-anno-04" />
       </profile>
     </annotationProcessing>
   </component>

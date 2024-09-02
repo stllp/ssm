@@ -11,6 +11,8 @@
     <modules>
         <module>spring-xml-01</module>
         <module>spring-anno-02</module>
+        <module>spring-aop-before-03</module>
+        <module>spring-anno-04</module>
     </modules>
     <dependencies>
         <dependency>
