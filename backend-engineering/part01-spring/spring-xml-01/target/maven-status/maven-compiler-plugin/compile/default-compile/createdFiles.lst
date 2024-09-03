@@ -1,0 +1,6 @@
+com\lvlp\stu\xml\pojo\User.class
+com\lvlp\stu\xml\pojo\HappyMachine.class
+com\lvlp\stu\xml\processor\MyBeanPostProcessor.class
+com\lvlp\stu\xml\pojo\HappyComponent.class
+com\lvlp\stu\xml\factory\ConnectionFacotoryBean.class
+com\lvlp\stu\xml\factory\HappyMachineFactoryBean.class
