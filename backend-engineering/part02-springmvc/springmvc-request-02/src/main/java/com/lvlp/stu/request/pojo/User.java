@@ -7,16 +7,16 @@ package com.lvlp.stu.request.pojo;
  */
 public class User {
     private String name;
-    private String gender;
     private int age;
-
-    public User(String name, String gender, int age) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-    }
+    private double score;
 
     public User() {
+    }
+
+    public User(String name, int age, double score) {
+        this.name = name;
+        this.age = age;
+        this.score = score;
     }
 
     public String getName() {
@@ -27,14 +27,6 @@ public class User {
         this.name = name;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public int getAge() {
         return age;
     }
@@ -43,12 +35,20 @@ public class User {
         this.age = age;
     }
 
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
                 ", age=" + age +
+                ", score=" + score +
                 '}';
     }
 }

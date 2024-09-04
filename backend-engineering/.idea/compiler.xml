@@ -17,8 +17,20 @@
         <module name="spring-anno-04" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="pring-transcation-07" target="17" />
-    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="part01-spring" options="" />
+      <module name="part02-springmvc" options="-parameters" />
+      <module name="spring-anno-02" options="" />
+      <module name="spring-anno-04" options="" />
+      <module name="spring-aop-before-03" options="" />
+      <module name="spring-jdbc-06" options="" />
+      <module name="spring-transcation-07" options="" />
+      <module name="spring-transcation-xml-08" options="" />
+      <module name="spring-xml-01" options="" />
+      <module name="springmvc-quick-01" options="-parameters" />
+      <module name="springmvc-request-02" options="-parameters" />
+    </option>
   </component>
 </project>
