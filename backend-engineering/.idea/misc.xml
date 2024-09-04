@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/part01-spring/pom.xml" />
+        <option value="$PROJECT_DIR$/part02-springmvc/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
