@@ -9,11 +9,13 @@
         <module name="spring-transcation-07" />
         <module name="spring-transcation-xml-08" />
         <module name="springmvc-request-02" />
+        <module name="springmvc-schedule-04" />
         <module name="spring-xml-01" />
         <module name="spring-anno-02" />
         <module name="spring-jdbc-06" />
         <module name="springmvc-quick-01" />
         <module name="springmvc-response-03" />
+        <module name="springmvc-rest-05" />
         <module name="spring-aop-before-03" />
         <module name="spring-anno-04" />
       </profile>
@@ -33,6 +35,8 @@
       <module name="springmvc-quick-01" options="-parameters" />
       <module name="springmvc-request-02" options="-parameters" />
       <module name="springmvc-response-03" options="-parameters" />
+      <module name="springmvc-rest-05" options="-parameters" />
+      <module name="springmvc-schedule-04" options="-parameters" />
     </option>
   </component>
 </project>
