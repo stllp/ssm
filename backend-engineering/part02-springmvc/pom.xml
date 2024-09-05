@@ -11,6 +11,7 @@
     <modules>
         <module>springmvc-quick-01</module>
         <module>springmvc-request-02</module>
+        <module>springmvc-response-03</module>
     </modules>
 
     <properties>

@@ -13,6 +13,7 @@
         <module name="spring-anno-02" />
         <module name="spring-jdbc-06" />
         <module name="springmvc-quick-01" />
+        <module name="springmvc-response-03" />
         <module name="spring-aop-before-03" />
         <module name="spring-anno-04" />
       </profile>
@@ -31,6 +32,7 @@
       <module name="spring-xml-01" options="" />
       <module name="springmvc-quick-01" options="-parameters" />
       <module name="springmvc-request-02" options="-parameters" />
+      <module name="springmvc-response-03" options="-parameters" />
     </option>
   </component>
 </project>
