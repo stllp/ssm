@@ -2,20 +2,22 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-transcation-07" />
-        <module name="spring-transcation-xml-08" />
         <module name="springmvc-request-02" />
         <module name="springmvc-schedule-04" />
         <module name="spring-xml-01" />
-        <module name="spring-anno-02" />
         <module name="spring-jdbc-06" />
+        <module name="spring-transcation-xml-08" />
+        <module name="spring-anno-02" />
         <module name="springmvc-quick-01" />
         <module name="springmvc-response-03" />
         <module name="springmvc-rest-05" />
+        <module name="springmvc-other-06" />
         <module name="spring-aop-before-03" />
         <module name="spring-anno-04" />
       </profile>
@@ -32,6 +34,7 @@
       <module name="spring-transcation-07" options="" />
       <module name="spring-transcation-xml-08" options="" />
       <module name="spring-xml-01" options="" />
+      <module name="springmvc-other-06" options="-parameters" />
       <module name="springmvc-quick-01" options="-parameters" />
       <module name="springmvc-request-02" options="-parameters" />
       <module name="springmvc-response-03" options="-parameters" />
