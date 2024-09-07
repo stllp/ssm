@@ -15,6 +15,7 @@
         <module>springmvc-schedule-04</module>
         <module>springmvc-rest-05</module>
         <module>springmvc-other-06</module>
+        <module>springmvc-file-09</module>
     </modules>
 
     <properties>
