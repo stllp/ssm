@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvlp.stu.relation.mapper.StudentMapper">
+    <resultMap id="StudentAndTeacher" type="Student">
+        <id column="s_id" property="sId"/>
+        <result column="s_name" property="sName"/>
+        <!--多对多的映射 实际上就是一对多的映射        -->
+        <collection property="teacherList" ofType="Teacher">
+            <id column="t_id" property="tId"/>
+            <result column="t_name" property="tName"/>
+        </collection>
+    </resultMap>
+    <select id="selectStudentAndTeacher" resultMap="StudentAndTeacher">
+        select t_student.s_id, t_student.s_name, t_teacher.t_id, t_teacher.t_name
+        from t_student
+                 inner join t_inner on t_student.s_id = t_inner.s_id
+                 inner join t_teacher on t_inner.t_id = t_teacher.t_id
+    </select>
+</mapper>

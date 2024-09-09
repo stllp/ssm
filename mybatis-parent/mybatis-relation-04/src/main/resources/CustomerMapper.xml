@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvlp.stu.relation.mapper.CustomerMapper">
+    <resultMap id="customerAndOrders" type="Customer">
+        <id column="customer_id" property="customerId"/>
+        <result column="customer_name" property="customerName"/>
+        <!--维护一对多  用  collection  属性 property  类型  ofType   -->
+        <collection property="orderList" ofType="Order">
+            <id column="order_id" property="orderId"/>
+            <result column="order_name" property="orderName"/>
+        </collection>
+    </resultMap>
+    <select id="selectCustomerAndOrders" resultMap="customerAndOrders">
+        select t_customer.customer_id, customer_name, order_id, order_name
+        from t_customer
+                 inner join t_order on t_customer.customer_id = t_order.customer_id
+        where t_customer.customer_id = #{customerId};
+    </select>
+
+</mapper>

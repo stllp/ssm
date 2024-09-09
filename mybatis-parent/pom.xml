@@ -12,6 +12,8 @@
         <module>mybatis-quick-01</module>
         <module>mybatis-param-02</module>
         <module>mybatis-result-03</module>
+        <module>mybatis-relation-04</module>
+        <module>mybatis-dynamic-05</module>
     </modules>
 
     <properties>
