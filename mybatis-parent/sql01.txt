@@ -1,0 +1,14 @@
+create database  `skyhotel` ;
+
+use skyhotel;
+
+create table `p_emp`(
+    emp_id INT AUTO_INCREMENT,
+    emp_name char(100),
+    emp_salary double(10,5),
+    primary key (emp_id)
+);
+
+insert into  `p_emp` (emp_id, emp_name, emp_salary) values(1,'张三',5000);
+insert into  `p_emp` (emp_id, emp_name, emp_salary) values (2,'李四',8000);
+insert into  `p_emp` (emp_id, emp_name, emp_salary) values (3,'王五',10000);

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvlp.stu.quick.mapper.EmployeeMapper">
+    <select id="selectAll" resultType="com.lvlp.stu.quick.pojo.Employee">
+        select emp_id empId,emp_name empName , emp_gender empGender ,emp_salary empSalary from p_emp;
+    </select>
+</mapper>

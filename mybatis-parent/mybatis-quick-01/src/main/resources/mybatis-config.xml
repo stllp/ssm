@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    数据库连接使用默认环境 多个环境ID时 设置的唯一ID生效-->
+    <environments default="MySQL">
+        <environment id="MySQL">
+            <!--            mybatis内置事务管理器是JDBC-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--            daraSource 是配置数据源  type=POOLED 表示要连接数据库连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/skyhotel"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--    添加注册文件映射-->
+    <mappers>
+        <mapper resource="EmployeeMapper.xml"/>
+    </mappers>
+</configuration>

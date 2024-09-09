@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvlp.stu.param.Mapper.EmployeeMapper">
+    <select id="selectAll" resultType="com.lvlp.stu.param.pojo.Employee">
+        select emp_id empId, emp_name empName, emp_gender empGender, emp_salary empSalary
+        from p_emp;
+    </select>
+    <select id="selectByEmpId" resultType="com.lvlp.stu.param.pojo.Employee">
+        select emp_id empId, emp_name empName, emp_gender empGender, emp_salary empSalary
+        from p_emp
+        where emp_id = #{id};
+    </select>
+    <!--通常 使用#{} 传递    特殊情况使用${}方式  使用${} 有sql注入的风险 -->
+    <select id="selectAllByRules" resultType="com.lvlp.stu.param.pojo.Employee">
+        select emp_id empId, emp_name empName, emp_gender empGender, emp_salary empSalary
+        from p_emp
+        order by emp_id ${rules};
+    </select>
+    <delete id="deleteByEmpId">
+        delete
+        from p_emp
+        where emp_id = #{empId};
+    </delete>
+    <!--    传入实体对象类型  可以直接使用对象的属性-->
+    <insert id="insert">
+        insert into p_emp(emp_id, emp_name, emp_gender, emp_salary)
+        values (#{empId}, #{empName}, #{empGender}, #{empSalary});
+    </insert>
+    <!--多个参数时   Available parameters are [arg1, arg0, param1, param2-->
+    <update id="updateByEmpId">
+        update p_emp
+        set emp_salary = #{param2}
+        where emp_id = #{param1};
+    </update>
+    <select id="selectBySalaryAndGender" resultType="com.lvlp.stu.param.pojo.Employee">
+        select emp_id empId, emp_name empName, emp_gender empGender, emp_salary empSalary
+        from p_emp
+        where emp_gender = #{empGender}
+          and emp_salary > #{empSalary};
+    </select>
+</mapper>
