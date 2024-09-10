@@ -14,7 +14,7 @@
     </bean>
     <!--    创建SqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" value="dataSource"/>
+        <property name="dataSource" ref="dataSource"/>
         <!--        平替mybatis-config中的setting-->
         <property name="configuration">
             <bean class="org.apache.ibatis.session.Configuration">
@@ -37,10 +37,10 @@
             </array>
         </property>
         <!--        平替mappers + packge-->
-        <property name="mapperLocations" value="classpath:com/lvlp/stu/schedule/mapper"/>
+        <property name="mapperLocations" value="classpath:com/lvlp/stu/schedule/mapper/*.xml"/>
     </bean>
     <!--    管理Mapper代理对象-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.lvlp.stu.schedule.mapper/*.xml"/>
+        <property name="basePackage" value="com.lvlp.stu.schedule.mapper"/>
     </bean>
 </beans>
