@@ -8,7 +8,7 @@
     </settings>
     <typeAliases>
         <!--        扫描包-->
-        <package name="com.lvlp.stu.dynamic.pojo"/>
+        <package name="com.lvlp.stu.reverse.pojo"/>
     </typeAliases>
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
@@ -27,6 +27,6 @@
     </environments>
     <mappers>
 <!--        <mapper resource="EmployeeMapper.xml"/>-->
-        <package name="com.lvlp.stu.dynamic.mapper"/>
+        <package name="com.lvlp.stu.reverse.mapper"/>
     </mappers>
 </configuration>

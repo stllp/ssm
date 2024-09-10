@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvlp.stu.dynamic.mapper.EmployeeMapper">
+    <!--sql语句片段    include引入sql片段 -->
+    <sql id="selectEmp">
+        select *
+        from p_emp
+    </sql>
+    <!--    where 标签可以根据条件来确定是否加where 关键字  并且会取消多余的and关键字  注意and关键字只能写到前面-->
+    <select id="selectByCondition" resultType="Employee">
+        <include refid="selectEmp"></include>
+        <where>
+            <if test="empId!=null">
+                emp_id = #{empId}
+            </if>
+            <if test="empName!=null">
+                and emp_name = #{empName}
+            </if>
+            <if test="empGender!=null">
+                and emp_gender = #{empGender}
+            </if>
+            <if test="empSalary!=null">
+                and emp_salary = #{empSalary}
+            </if>
+        </where>
+    </select>
+    <!--set 里面为了杜绝一个set 值都没有的情况 把empid加入set-->
+    <update id="updateByCondition">
+        update p_emp
+        <set>
+            <if test="empName!=null">
+                emp_name = #{empName} ,
+            </if>
+            <if test="empGender!=null">
+                emp_gender = #{empGender},
+            </if>
+            <if test="empSalary!=null">
+                emp_salary = #{empSalary},
+            </if>
+            <if test="empId!=null">
+                emp_id = #{empId}
+            </if>
+        </set>
+        where emp_id = #{empId}
+    </update>
+    <!--trim 关键字 prefix 前置  suffix 后置 当中间没有条件时 两个都不执行  prefixOverrides suffixOverrides 条件前置后置提除重复   -->
+    <select id="selectByTrimCondition" resultType="Employee">
+        <include refid="selectEmp"></include>
+        <trim prefix="where" suffix="and 1=1" prefixOverrides="and|or" suffixOverrides="and|or">
+            <if test="empId!=null">
+                emp_id = #{empId}
+            </if>
+            <if test="empName!=null">
+                and emp_name = #{empName}
+            </if>
+            <if test="empGender!=null">
+                and emp_gender = #{empGender}
+            </if>
+            <if test="empSalary!=null">
+                and emp_salary = #{empSalary}
+            </if>
+        </trim>
+    </select>
+    <!--trim 代替set  不常用-->
+    <update id="updateByTrimCondition">
+        update p_emp
+        <trim prefix="set" prefixOverrides="," suffixOverrides=",">
+            <if test="empName!=null">
+                emp_name = #{empName} ,
+            </if>
+            <if test="empGender!=null">
+                emp_gender = #{empGender},
+            </if>
+            <if test="empSalary>0">
+                emp_salary = #{empSalary},
+            </if>
+            <if test="empId!=null">
+                emp_id = #{empId}
+            </if>
+        </trim>
+        where emp_id = #{empId}
+    </update>
+    <!--choose when otherwise    -->
+    <select id="selectByChooseCondition" resultType="Employee">
+        <include refid="selectEmp"></include>
+        where
+        <choose>
+            <when test="empId!=null">emp_id = #{empId}</when>
+            <when test="empName!=null">emp_name = #{empName}</when>
+            <when test="empGender!=null">emp_gender = #{empGender}</when>
+            <when test="empSalary>0">emp_salary = #{empSalary}</when>
+            <otherwise>
+                1=1
+            </otherwise>
+        </choose>
+    </select>
+    <select id="selectByForeachIds" resultType="Employee">
+        select * from p_emp where emp_id in
+        <foreach collection="array" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+
+    </select>
+    <insert id="insertByForeach">
+        insert into `p_emp` (emp_name,emp_gender,emp_salary)
+        <foreach collection="list" item="emp" separator="," open="values">
+            (#{emp.empName},#{emp.empGender},#{emp.empSalary})
+        </foreach>
+    </insert>
+    <!--多行sql 需要修改数据库连接配置 添加allowMultiQueries=true  <property name="url" value="jdbc:mysql://localhost:3306/skyhotel?allowMultiQueries=true"/>  -->
+    <update id="updateByForeach">
+        <foreach collection="list" item="emp" separator=";">
+            update p_emp set emp_salary=#{emp.empSalary} where emp_id = #{emp.empId}
+        </foreach>
+    </update>
+    <select id="selectAll">
+        <include refid="selectEmp"></include>
+    </select>
+</mapper>

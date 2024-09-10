@@ -5,27 +5,50 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lvlp.stu</groupId>
-    <artifactId>mybatis-parent</artifactId>
+    <artifactId>ssm-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>mybatis-quick-01</module>
-        <module>mybatis-param-02</module>
-        <module>mybatis-result-03</module>
-        <module>mybatis-relation-04</module>
-        <module>mybatis-dynamic-05</module>
-        <module>mybatis-reverse-06</module>
+        <module>ssm-integration-01</module>
+        <module>ssm-schedule-02</module>
     </modules>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <!--
+    mybatis依赖：
+        mybatis核心依赖
+        mysql驱动
+        Druid连接池
+        日志相关 logback
+        lombok
+        分页插件
+        juipter测试依赖
+    spring的依赖：
+        spring-context核心依赖
+        spring-test 测试 整合junit
+        spring-aspects
+        pring-tx
+    springMVC的依赖：
+        spring-webmvc
+        jarkata-web-opi
+        jackson-databind
+        commons-fileupload
+        hibernate-validator 校验注解
+    -->
     <dependencies>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>3.0.3</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -57,11 +80,6 @@
             <version>6.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>6.0.6</version>
-        </dependency>
-        <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>2.1.1</version>
@@ -87,6 +105,39 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.17.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>6.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>6.0.6</version>
+        </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <parameters>true</parameters>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
