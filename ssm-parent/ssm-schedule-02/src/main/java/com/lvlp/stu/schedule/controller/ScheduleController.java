@@ -2,6 +2,7 @@ package com.lvlp.stu.schedule.controller;
 
 import com.lvlp.stu.schedule.pojo.Schedule;
 import com.lvlp.stu.schedule.service.ScheduleService;
+import com.lvlp.stu.schedule.util.PageBean;
 import com.lvlp.stu.schedule.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,5 +27,8 @@ public class ScheduleController {
     public R showAll() {
         List<Schedule> scheduleList = scheduleService.showAll();
         return R.ok(scheduleList);
+    }
+    public PageBean<Schedule> showAllByPage(Integer pageSize ,Integer currentPage){
+        return  scheduleService.showAllByPage( pageSize , currentPage);
     }
 }
