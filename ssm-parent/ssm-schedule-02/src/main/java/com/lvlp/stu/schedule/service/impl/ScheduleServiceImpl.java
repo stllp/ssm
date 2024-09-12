@@ -1,5 +1,7 @@
 package com.lvlp.stu.schedule.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lvlp.stu.schedule.mapper.ScheduleMapper;
 import com.lvlp.stu.schedule.pojo.Schedule;
 import com.lvlp.stu.schedule.service.ScheduleService;
@@ -27,8 +29,16 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
     @Override
-    public PageBean<Schedule> showAllByPage(Integer pageSize, Integer currentPage) {
-        
-        return null;
+    public PageBean<Schedule> showAllByPage(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Schedule> scheduleList = scheduleMapper.selectAll();
+
+        PageInfo<Schedule> schedulePageInfo = new PageInfo<>(scheduleList);
+        PageBean<Schedule> schedulePageBean = new PageBean<>();
+        schedulePageBean.setCurrentPage(schedulePageInfo.getPageNum());
+        schedulePageBean.setData(scheduleList);
+        schedulePageBean.setTotal(schedulePageInfo.getTotal());
+        schedulePageBean.setPageSize(schedulePageInfo.getPageSize());
+        return schedulePageBean;
     }
 }

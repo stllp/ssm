@@ -1,0 +1,4 @@
+com\lvlp\stu\robot\config\RobotAutoConfiguration.class
+com\lvlp\stu\robot\properties\RobotProperties.class
+com\lvlp\stu\robot\service\RobotService.class
+com\lvlp\stu\robot\config\EnableRobotAutoConfiguration.class

@@ -13,5 +13,5 @@ public interface ScheduleService {
 
     List<Schedule> showAll();
 
-    PageBean<Schedule> showAllByPage(Integer pageSize , Integer currentPage);
+    PageBean<Schedule> showAllByPage(Integer pageNum , Integer pageSize);
 }

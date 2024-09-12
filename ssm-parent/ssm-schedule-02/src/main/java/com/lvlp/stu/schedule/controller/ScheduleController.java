@@ -5,10 +5,7 @@ import com.lvlp.stu.schedule.service.ScheduleService;
 import com.lvlp.stu.schedule.util.PageBean;
 import com.lvlp.stu.schedule.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,9 @@ public class ScheduleController {
         List<Schedule> scheduleList = scheduleService.showAll();
         return R.ok(scheduleList);
     }
-    public PageBean<Schedule> showAllByPage(Integer pageSize ,Integer currentPage){
-        return  scheduleService.showAllByPage( pageSize , currentPage);
+
+    @GetMapping("/{pageNum}/{pageSize}")
+    public PageBean<Schedule> showAllByPage(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+        return scheduleService.showAllByPage(pageNum, pageSize);
     }
 }
