@@ -11,6 +11,9 @@
     <modules>
         <module>springboot-robot-starter</module>
         <module>springboot-robot-use</module>
+        <module>springboot-mvc-03</module>
+        <module>springboot-mybatis-04</module>
+        <module>springboot-task-05</module>
     </modules>
 
     <properties>

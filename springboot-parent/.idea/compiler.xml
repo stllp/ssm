@@ -8,15 +8,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-robot-use" />
+        <module name="springboot-mybatis-04" />
         <module name="springboot-robot-starter" />
+        <module name="springboot-mvc-03" />
+        <module name="springboot-task-05" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot-mvc-03" options="-parameters" />
+      <module name="springboot-mybatis-04" options="-parameters" />
       <module name="springboot-parent" options="" />
       <module name="springboot-robot-starter" options="-parameters" />
       <module name="springboot-robot-use" options="-parameters" />
+      <module name="springboot-task-05" options="-parameters" />
     </option>
   </component>
 </project>
