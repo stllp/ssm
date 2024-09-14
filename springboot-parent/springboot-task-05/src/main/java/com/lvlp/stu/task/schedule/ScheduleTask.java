@@ -14,12 +14,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduleTask {
     @Autowired
-    private EmployeeService employeeService;
+    private EmployeeService employeeService; //每天8:30执行一次
 //    @Scheduled(cron = "0 30 8 * * ?")
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0/5 * * * * ?") //每5秒执行一次  写法搜索cron在线生成器
     public void execute() {
         DateTime dateTime = new DateTime();
-        System.out.println("execute");
         employeeService.sendMessage(dateTime.plusDays(1).toString("yyyy-MM-dd"));
     }
 }

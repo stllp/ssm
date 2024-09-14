@@ -21,9 +21,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void sendMessage(String date) {
         List<Employee> employeeList = employeeMapper.selectAll(date);
-        System.out.println("111");
         for (Employee employee : employeeList) {
-            System.out.println("employee = " + employee );
+            System.out.println("需要发送短信的人员信息 = " + employee );
         }
     }
 }
